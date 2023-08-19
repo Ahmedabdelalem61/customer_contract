@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <!-- Form View Definition -->
+        <record model="ir.ui.view" id="view_customer_contract_form">
+            <field name="name">customer.contract.form</field>
+            <field name="model">customer.contract</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                     <field name="state" widget="statusbar"/>
+                     <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
+                    </header>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="price"/>
+                        <field name="avg_price"/>
+                        <field name="state"/>
+                        <field name="last_change_state_by_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action Definition -->
+        <record model="ir.actions.act_window" id="action_customer_contract">
+            <field name="name">Customer Contracts</field>
+            <field name="res_model">customer.contract</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Definition -->
+        <menuitem id="menu_customer_contract_list" name="Contract List" action="action_customer_contract"/>
+    </data>
+</odoo>
